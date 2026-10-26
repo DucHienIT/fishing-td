@@ -232,7 +232,7 @@ public class TCP2_OutlineInspector : MaterialEditor
 		}
 
 		//GUI
-		switch(property.propertyType)
+		switch(property.GetPropertyType())
 		{
 		case ShaderPropertyType.Color:
 			ColorProperty(property, displayName);
@@ -271,7 +271,7 @@ public class TCP2_OutlineInspector : MaterialEditor
 			break;
 
 		default:
-			EditorGUILayout.LabelField("Unknown Material Property Type: " + property.propertyType);
+			EditorGUILayout.LabelField("Unknown Material Property Type: " + property.GetPropertyType());
 			break;
 		}
 

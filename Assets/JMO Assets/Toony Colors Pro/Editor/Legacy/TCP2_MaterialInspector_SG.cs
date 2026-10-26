@@ -83,7 +83,7 @@ public class TCP2_MaterialInspector_SG : ShaderGUI
 				else
 				{
 					//Draw regular property
-					if(visible && (p.propertyFlags & (UnityEngine.Rendering.ShaderPropertyFlags.PerRendererData | UnityEngine.Rendering.ShaderPropertyFlags.HideInInspector)) == UnityEngine.Rendering.ShaderPropertyFlags.None)
+					if(visible && (p.GetPropertyFlags() & (UnityEngine.Rendering.ShaderPropertyFlags.PerRendererData | UnityEngine.Rendering.ShaderPropertyFlags.HideInInspector)) == UnityEngine.Rendering.ShaderPropertyFlags.None)
 						mMaterialEditor.ShaderProperty(p, p.displayName);
 				}
 			}

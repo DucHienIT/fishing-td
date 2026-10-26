@@ -1237,7 +1237,7 @@ namespace ToonyColorsPro
 				//Code from ColorPropertyInternal, but with alpha turned off
 				EditorGUI.BeginChangeCheck();
 				EditorGUI.showMixedValue = prop.hasMixedValue;
-				bool hdr = forceHdr || (prop.propertyFlags & UnityEngine.Rendering.ShaderPropertyFlags.HDR) != UnityEngine.Rendering.ShaderPropertyFlags.None;
+				bool hdr = forceHdr || (prop.GetPropertyFlags() & UnityEngine.Rendering.ShaderPropertyFlags.HDR) != UnityEngine.Rendering.ShaderPropertyFlags.None;
 				bool showAlpha = false;
 #if UNITY_2018_1_OR_NEWER
 				Color colorValue = EditorGUI.ColorField(position, label, prop.colorValue, true, showAlpha, hdr);
@@ -1420,7 +1420,7 @@ namespace ToonyColorsPro
 		{
 			private static bool IsPropertyTypeSuitable(MaterialProperty prop)
 			{
-				return prop.propertyType == UnityEngine.Rendering.ShaderPropertyType.Float || prop.propertyType == UnityEngine.Rendering.ShaderPropertyType.Range;
+				return prop.GetPropertyType() == UnityEngine.Rendering.ShaderPropertyType.Float || prop.GetPropertyType() == UnityEngine.Rendering.ShaderPropertyType.Range;
 			}
 
 			public override float GetPropertyHeight(MaterialProperty prop, string label, MaterialEditor editor)
@@ -1478,7 +1478,7 @@ namespace ToonyColorsPro
 
 			private static bool IsPropertyTypeSuitable(MaterialProperty prop)
 			{
-				return prop.propertyType == UnityEngine.Rendering.ShaderPropertyType.Float || prop.propertyType == UnityEngine.Rendering.ShaderPropertyType.Range;
+				return prop.GetPropertyType() == UnityEngine.Rendering.ShaderPropertyType.Float || prop.GetPropertyType() == UnityEngine.Rendering.ShaderPropertyType.Range;
 			}
 
 			public override float GetPropertyHeight(MaterialProperty prop, string label, MaterialEditor editor)
@@ -1577,7 +1577,7 @@ namespace ToonyColorsPro
 
 			static bool IsPropertyTypeSuitable(MaterialProperty prop)
 			{
-				return prop.propertyType == UnityEngine.Rendering.ShaderPropertyType.Float || prop.propertyType == UnityEngine.Rendering.ShaderPropertyType.Range;
+				return prop.GetPropertyType() == UnityEngine.Rendering.ShaderPropertyType.Float || prop.GetPropertyType() == UnityEngine.Rendering.ShaderPropertyType.Range;
 			}
 
 			void SetKeyword(MaterialProperty prop, int index)
@@ -1699,7 +1699,7 @@ namespace ToonyColorsPro
 			public override float GetPropertyHeight(MaterialProperty prop, string label, MaterialEditor editor)
 			{
 				float result;
-				if (prop.propertyType != UnityEngine.Rendering.ShaderPropertyType.Float && prop.propertyType != UnityEngine.Rendering.ShaderPropertyType.Range)
+				if (prop.GetPropertyType() != UnityEngine.Rendering.ShaderPropertyType.Float && prop.GetPropertyType() != UnityEngine.Rendering.ShaderPropertyType.Range)
 				{
 					result = 40f;
 				}
@@ -1711,7 +1711,7 @@ namespace ToonyColorsPro
 			}
 			public override void OnGUI(Rect position, MaterialProperty prop, GUIContent label, MaterialEditor editor)
 			{
-				if (prop.propertyType != UnityEngine.Rendering.ShaderPropertyType.Float && prop.propertyType != UnityEngine.Rendering.ShaderPropertyType.Range)
+				if (prop.GetPropertyType() != UnityEngine.Rendering.ShaderPropertyType.Float && prop.GetPropertyType() != UnityEngine.Rendering.ShaderPropertyType.Range)
 				{
 					EditorGUI.HelpBox(position, "Enum used on a non-float property: " + prop.name, MessageType.Warning);
 				}
@@ -1747,7 +1747,7 @@ namespace ToonyColorsPro
 		{
 			private static bool IsPropertyTypeSuitable(MaterialProperty prop)
 			{
-				return prop.propertyType == UnityEngine.Rendering.ShaderPropertyType.Texture;
+				return prop.GetPropertyType() == UnityEngine.Rendering.ShaderPropertyType.Texture;
 			}
 
 			public override float GetPropertyHeight(MaterialProperty prop, string label, MaterialEditor editor)
@@ -1798,7 +1798,7 @@ namespace ToonyColorsPro
 
 			private static bool IsPropertyTypeSuitable(MaterialProperty prop)
 			{
-				return prop.propertyType == UnityEngine.Rendering.ShaderPropertyType.Vector;
+				return prop.GetPropertyType() == UnityEngine.Rendering.ShaderPropertyType.Vector;
 			}
 
 			public override float GetPropertyHeight(MaterialProperty prop, string label, MaterialEditor editor)
